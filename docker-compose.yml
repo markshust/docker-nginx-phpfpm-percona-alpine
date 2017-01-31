@@ -1,4 +1,4 @@
-version: "2"
+version: "3"
 
 services:
   web:
@@ -28,11 +28,13 @@ services:
     ports:
       - 33061:3306
     volumes:
-      - ./datadir:/var/lib/mysql
+      - dbdata:/var/lib/mysql
     networks:
       - www
     env_file: .env
 
+volumes:
+  dbdata:
+
 networks:
   www:
-    driver: bridge
